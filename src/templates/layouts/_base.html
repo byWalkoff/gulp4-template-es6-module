@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html lang="en-EN">
+<head>
+  <meta http-equiv="content-type" charset="utf-8">
+  {% if metaTitle %}<title>{{ metaTitle }}</title> {% else %} <title>Default Title</title> {% endif %}
+  <meta property="og:url" content="">
+  <meta property="og:title" content="">
+  <meta property="og:description" content="">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@">
+  <meta name="twitter:title" content="">
+  <meta name="twitter:description" content="">
+  <meta name="twitter:image" content="">
+  <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/vnd.microsoft.icon" href="dist/assets/img/favicon.ico">
+  <link rel="stylesheet" href="./dist/css/styles.css?ver=0">
+  <script src="./dist/js/core.js?ver=0"></script>
+</head>
+<body class="{{ body_class }}">
+
+<!-- header if exist -->
+{% block header %}{%endblock%}
+
+<!--content-->
+<main class="content">
+
+  {%- block content %}{% endblock %}
+
+</main>
+<!--content end-->
+
+<div class="overlay js-overlay"></div>
+
+</body>
+</html>

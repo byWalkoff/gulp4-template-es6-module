@@ -1,0 +1,19 @@
+@mixin view-cover{
+   position: absolute;
+   top: -100%;
+   bottom: -100%;
+   left: -100%;
+   right: -100%;
+   margin: auto;
+   min-width: 100%;
+   min-height: 100%;
+}
+
+@mixin full-area{
+   position: absolute;
+   top: 0;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   margin: auto;
+}
