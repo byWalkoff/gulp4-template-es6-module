@@ -4,6 +4,7 @@ html {
 }
 
 body {
+   //font-family: $default;
    font-family: $default;
    font-weight: normal;
    font-style: normal;
@@ -19,6 +20,20 @@ body {
    display: flex;
    flex-direction: column;
    align-items: center;
+
+   // special for Anders
+   h1{
+      font-family: $roboto;
+
+      &:nth-child(2){
+         font-family: $poppins;
+         font-weight: 400;
+      }
+      &:nth-child(2){
+         font-weight: $default;
+      }
+
+   }
 
    &.blocked {
       overflow: hidden;
