@@ -1,6 +1,6 @@
 module.exports = function () {
 	$.gulp.task('html', (done) => {
-		$.gulp.src('src/templates/*.html')
+		$.gulp.src('src/templates/**/*.html')
 			.pipe($.nunjucks.compile())
 			.pipe($.prettify({
 				indent_size: 2,
