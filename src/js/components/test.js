@@ -1,4 +1,4 @@
 export default function () {
-	let a = 'hell yeah';
+	let a = 'connected';
 	console.log(a);
 };

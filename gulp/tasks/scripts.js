@@ -2,7 +2,7 @@ module.exports = function () {
 	$.gulp.task('scripts', (done) => {
 		$.gulp.src(
 			[
-				'src/js/libs/jquery-3.3.1.min.js',
+				/*here could be 'src/js/libs/jquery.js etc.'*/
 				'src/js/babled/init.js'
 			])
 			.pipe($.gulpIf($.isDevelopment, $.sourcemaps.init()))
