@@ -1,8 +1,6 @@
-module.exports = function () {
-	$.gulp.task('webserver', () => {
-		$.browserSync.init(config);
-	});
-	
+const browserSync = require("browser-sync");
+
+function webserver() {
 	let config = {
 		server: {
 			baseDir: "./frontend/"
@@ -12,4 +10,7 @@ module.exports = function () {
 		port: 9000,
 		logPrefix: "bw"
 	};
-};
+	browserSync.init(config);
+}
+
+exports.webserver = webserver;

@@ -1,7 +1,11 @@
-module.exports = function () {
-	$.gulp.task('assets', () => {
-		return $.gulp.src('src/assets/**/*.*')
-			.pipe($.gulp.dest('./frontend/dist/assets/'))
-			.pipe($.browserSync.reload({stream: true}));
-	});
-};
+const gulp =  require('gulp');
+const {dest, src} = gulp;
+const browserSync = require("browser-sync");
+
+function assets() {
+	return src('src/assets/**/*.*')
+		.pipe(dest('./frontend/dist/assets/'))
+		.pipe(browserSync.reload({stream: true}));
+}
+
+exports.assets = assets;

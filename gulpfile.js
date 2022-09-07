@@ -1,43 +1,29 @@
-global.$ = {
-	gulp : require('gulp'),
-	concat: require('gulp-concat'),
-	sass : require('gulp-sass'),
-	postcss : require('gulp-postcss'),
-	autoprefixer : require('autoprefixer'),
-	mqpacker : require('css-mqpacker'),
-	browserify: require('browserify'),
-	babelify: require('babelify'),
-	source: require('vinyl-source-stream'),
-	buffer: require('vinyl-buffer'),
-	plumber : require('gulp-plumber'),
-	browserSync : require("browser-sync").create(),
-	nunjucks : require('gulp-nunjucks'),
-	prettify: require('gulp-prettify'),
-	del : require('del'),
-	babel : require('gulp-babel'),
-	gulpIf : require('gulp-if'),
-	uglify : require('gulp-uglify'),
-	debug : require('gulp-debug'),
-	sourcemaps : require('gulp-sourcemaps'),
-	isDevelopment : !process.env.NODE_ENV || process.env.NODE_ENV === 'development',
-	
-	path: {
-		tasks: require('./gulp/config/tasks.js')
-	}
-};
+const gulp =  require('gulp');
+const {series, parallel} = gulp;
 
-$.path.tasks.forEach(function (task) {
-	require(task)();
-});
+const babelit = require("./gulp/tasks/babelit").babelit;
+const clean = require("./gulp/tasks/clean").clean;
+const assets = require("./gulp/tasks/assets").assets;
+const html = require("./gulp/tasks/html").html;
+const scripts = require("./gulp/tasks/scripts").scripts;
+const styles = require("./gulp/tasks/styles").styles;
+const watcher = require("./gulp/tasks/watch").watcher;
+const webserver = require("./gulp/tasks/webserver").webserver;
+
+exports.babelit = babelit;
+exports.clean = clean;
+exports.assets = assets;
+exports.html = html;
+exports.scripts = scripts;
+exports.styles = styles;
+exports.watcher = watcher;
+exports.webserver = webserver;
 
 // Default task
 //******************************************
-$.gulp.task("default",
-	$.gulp.series('babelit', 'cleanImg', 'assets', 'scripts', 'styles', 'html')
-);
+
+exports.default = series(babelit, clean, assets, scripts, styles, html);
 
 // Development task
 //******************************************
-$.gulp.task('dev',
-	$.gulp.series('default', $.gulp.parallel('watch', 'webserver'))
-);
+exports.dev = series(parallel(watcher, webserver));
